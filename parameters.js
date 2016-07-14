@@ -3,7 +3,7 @@
  * Lugtigheid (lugtigheid@gmail.com) 
  * available at http://code.google.com/p/matlabstaircase/
 */ 
-
+var AutomaticResponse =0;
 var back_color = [204, 255, 179];
 var FinalContrast = 10;
 

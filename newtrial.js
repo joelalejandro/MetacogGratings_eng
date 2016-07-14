@@ -1,7 +1,7 @@
 function  newtrial(sc){
 $('#Letterhead2').show();
-$('#ThickLine').css("background","rgb(255,150,0)");
-$('#ThickLine').hide();
+$('#Dial').css("background","rgb(255,150,0)");
+$('#Dial').hide();
 $(document).unbind("click");
 $('#ResponseButtons').unbind("click");
 

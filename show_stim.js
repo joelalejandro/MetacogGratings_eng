@@ -11,6 +11,7 @@ if (sc.trial == 3){$('#preg').html('Now we&#8217ll go a little faster!');}
 if (sc.trial < 4){
 	setTimeout("$('#preg').fadeIn(100);",0);
 	setTimeout("$('#Dot').fadeIn(100);",0);
+	setTimeout("$('#DotC').fadeIn(100);",0);
 	$('#Dot').css("color","rgb(204, 255, 179)");
 	}
 

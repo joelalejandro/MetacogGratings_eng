@@ -1,52 +1,74 @@
 function introspective_response(DataToSave)
 {
-LIMMIN = CENTER - $('#line1').width()/2;
-LIMMAX = CENTER + $('#line1').width()/2;
-var rango = LIMMAX - LIMMIN;
+
+	
+var LIMMIN = Math.ceil(screen.width/2) - Math.ceil($('#line1').width()/2) - 10;
+var LIMMAX = Math.ceil(screen.width/2) + Math.ceil($('#line1').width()/2) - 10;
+var range = LIMMAX - LIMMIN;
+
+
+$('#scale').css('color','#004D00')
+if (sc.trial > 1){
+	$("#scale").animate({ right: '-15px',top: '15px', fontSize: '1em',opacity: '1.0'},10);
+}
 
 $('div.RespButton1').hide();
 $('div.RespButton2').hide();
 	
-setTimeout("$('div.linesConf').fadeIn(100)",100);
-$('#marks').show();
 $('#line1').show();
 
 var x = 0;
 clearInterval("id");
 $('#ThickLine').width(0);  // posicion inicial a 0 
-
 $('#preg_segu').show();
+var percent = 0;
 
 StartTime = +new Date();
 
 //------------------mouse ---------
 if (Touchscreen == 'Mouse')
 {
-	$(document).mousemove(function(e)
-	{
-		$('#ThickLine').show();
+	if (AutomaticResponse ==1){setTimeout("$('#Dial').click()",1000)}						// to run alone
+		$(document).mousemove(function(e){ 																					// slides the cursor
+		$('#scale').show();
+		$('#Dial').show();
 		x = e.pageX;
 		if (e.pageX >= LIMMAX){x = LIMMAX};
 		if (e.pageX <= LIMMIN){x = LIMMIN};
-		$('#ThickLine').width(x - LIMMIN);
-	})
+
+		percen = (100 * (x - LIMMIN)/range).toFixed(0)  														// get percentaje online
+		$('#scale').html(percen.toString().concat(' %'))
+		$('#scale').css({"left": x- Math.ceil(screen.width/2)})
+
+		$('#Dial').css({"left": x});})
+
 
 	$(document).click(function(ee)
 	{
 		$(document).unbind('mousemove');
-		var xx = ee.pageX;
-		if (ee.pageX >= LIMMAX){xx = LIMMAX};
-		if (ee.pageX <= LIMMIN){xx = LIMMIN};
-	
-		$('#ThickLine').width(xx - LIMMIN);
-		DataToSave.confidence		= (x - LIMMIN)/rango; 
-		DataToSave.reactionTimeConf	= +new Date() - StartTime;
-		setTimeout("$('#ThickLine').css('background','rgb(255, 224, 102)')",100);
+		$(document).unbind('mousemove');
+		x = ee.pageX;
+		if (ee.pageX >= LIMMAX){x = LIMMAX};
+		if (ee.pageX <= LIMMIN){x = LIMMIN};
+		$('#Dial').show();
+		$('#Dial').css({"left": x})
+
+		DataToSave.confidence		= (x - LIMMIN)/range;
+		DataToSave.reactiontimeconf	= +new Date() - StartTime;		setTimeout("$('#ThickLine').css('background','rgb(255, 224, 102)')",100);
 	 
-		$('#ThickLine').fadeOut(500);
-		$('#line1').fadeOut(500);
-		$('#preg_segu').fadeOut(500);
-		$('#marks').fadeOut(500);
+		$("#scale").animate({ right: '15px',top: '-15px',
+            fontSize: '2em',opacity: '0.0'},500);
+
+		setTimeout("$('#Dial').css('background','#ff99ce')",100);
+		setTimeout("$('#Dial').css('background','#99004f')",400);
+
+		$('#Dial').fadeOut(500);
+		$('#line1').fadeOut(550);
+		$('#preg_segu').fadeOut(550);
+		$('#scale').fadeOut(500);
+
+
+
 		$(document).unbind('click');
 		store_data(DataToSave);	
 	
@@ -55,6 +77,7 @@ if (Touchscreen == 'Mouse')
 			$('#preg').html('End of the game, thank you!');
 			$('#preg').css( "fontSize", "30px" );
 			$('#preg').show();
+			return
 		}
 		else
 		{	

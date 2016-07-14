@@ -30,7 +30,16 @@ html{-webkit-tap-highlight-color:transparent;}
  
 #Dot{
     position:absolute;
+    font-size: 50px;
   }
+#Question1{
+    display: none;
+  }
+
+#Question2{
+    display: none;
+  }
+
 #Letterhead1
 {background-color:#004d00;
 position:absolute;
@@ -38,6 +47,17 @@ margin-top: 30px;
 margin-left: -8px;
 cursor: pointer;
 } 
+
+#Letterhead2{display: none}
+
+#Dial{display:none;
+height:10px;
+width:10px;
+cursor: pointer;
+border-radius: 50%;
+background: "rgb(255,150,0)"
+}
+
 
 .row
 {
@@ -65,14 +85,18 @@ cursor: pointer;
 #te4{text-align: justify;
     padding: .5px;}
 
+#scale{display:none;
+    color: rgb(0,77,0);}
+
 #line1{display:none;
 height: 1%;
 max-height: 2px;   
 cursor: pointer;
 }
-
-#ThickLine{display:none;
+#marks{display: none;}
+#Dial{display:none;
 cursor: pointer;
+background-color: rgb(255,150,0);
  }
 #example1{
    display: block;
@@ -126,7 +150,7 @@ cursor: pointer;
  } 
 
 #RespButton1{
-  display: inline-block;
+  display: none;
   padding: 5px 15px;
   font-size: 20px;
   font-weight: bold;
@@ -147,7 +171,7 @@ cursor: pointer;
   transform: translateY(2px);
 } 
 #RespButton2{
-  display: inline-block;
+  display: none;
   padding: 5px 15px;
   font-size: 20px;
   font-weight: bold;
@@ -192,7 +216,8 @@ cursor: pointer;
 		height: auto;
 }				
 	#preg{font-size: 20;}
-	#preg_segu{font-size: 20;}
+	#preg_segu{font-size: 20;
+    color: rgb(0, 77, 0)}
 
 	#example1{width: 140%;}
 	#example2{width: 100%;}
@@ -216,8 +241,9 @@ cursor: pointer;
 	#te4{text-align:left;}
 
 	#Dot:{
-		width: auto; 
-		font-size:50%;} 
+		display:none;
+    width: auto; 
+		font-size:50px;} 
  
 }  
 
@@ -250,18 +276,25 @@ cursor: pointer;
 		padding: 10px 25px;
 		font-size: 14px;
 		}
-	#RespButton1{
-		padding: 8px 20px;
-		font-size: 17px;
-		}
+    
+  #boton_submit{
+    display: none;}
+
+  #RespButton1{
+    padding: 8px 20px;
+    font-size: 17px;
+    }
+
 	#RespButton2{
 		padding: 8px 20px;
 		font-size: 17px;
 		}
 	#myCanvasL{
+    display: none;
 		width: 80%;
 		height: auto;}
 	#myCanvasR{
+    display: none;
 		width: 80%;
 		height: auto;}
 
@@ -317,11 +350,29 @@ cursor: pointer;
 /* --------------------------For desktops: -------------*/
 @media only screen and (min-width: 1200px) {
 	#myCanvasR{
-		position:relative;
+    display: none;
+    position:relative;
 		left: -110px;		}
 	#myCanvasL{
-		position:relative;
+		display: none;
+    position:relative;
 		right: -110px;		}
-}
+#Dot:{
+    width: auto; 
+   font-size:200%;
+    }
+
+
+  #Question1{margin-top: 0px;}
+  #Question2{margin-top: 0px;}
+  #Stimuli{margin-top: 120px;}
+  #ResponseButtons{margin-top: 180px;}
+  #scale{margin-top: 152px;}
+  #bar1{margin-top: 193px;}
+  #bar2{margin-top: 190px;}
+  #DotC{margin-top: 120px;}
+
+
+  }
 
 
