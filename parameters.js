@@ -3,14 +3,13 @@
  * Lugtigheid (lugtigheid@gmail.com) 
  * available at http://code.google.com/p/matlabstaircase/
 */ 
-var AutomaticResponse =0;
+var AutomaticResponse = 0;  //for debugging, runs alone
+
+
 var back_color = [204, 255, 179];
-var FinalContrast = 10;
+ 
 
-var CENTER = screen.width/2;
-
-var MaxTrials 	= 100;
-var DISTANCE_TO_CENTER = 0;
+var MaxTrials 	= 100; 
 var REW = 10;						// number of trials between rewards
 var Level = 1;
 
@@ -20,9 +19,8 @@ var lamda 	 	= 30;                // wavelength (number of pixels per cycle)
 var sigma 	 	= 40;                // gaussian standard deviation in pixels
 var freq 	 	= imSize/lamda;       // compute frequency from wavelength
 var CIRC 	 	= .07;
-var ShowFlag  	= 0;
 var DataToSave 	= [];
-
+var FinalContrast = 10;
 
 // staircase
 var sc 					= [];

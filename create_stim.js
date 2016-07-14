@@ -1,9 +1,9 @@
 function create_stim(context1,context2,trial_stimval, callback)
 {
-var theta = Math.random() * 360;           // grating orientation
-var phase = Math.random();                 // phase (0 -> 1)
-var phaseRad = (phase * 2 * Math.PI);      // convert to radians: 0 -> 2*pi
-var thetaRad = (theta / 360) * 2 * Math.PI;        // convert theta (orientation) to radians
+var theta = Math.random() * 360;    				       // grating orientation
+var phase = Math.random();          				       // phase (0 -> 1)
+var phaseRad = (phase * 2 * Math.PI);      				   // convert to radians: 0 -> 2*pi
+var thetaRad = (theta / 360) * 2 * Math.PI;      	       // convert theta (orientation) to radians
 
 DataToSave.thetaRad 	= thetaRad;
 DataToSave.phaseRad 	= phaseRad;
@@ -15,19 +15,18 @@ var data1 = imageData1.data;
 var imageData2 = context2.getImageData(1, 1, imSize,imSize);
 var data2 = imageData2.data;
 
-// linear ramp
-var X = [];   
-for (var i = 0; i <= imSize; i++) { X.push(i);} // X = 1:imSize;
+var X = []; 											  	// linear ramp	
+for (var i = 0; i <= imSize; i++) { X.push(i);} 		 	// X = 1:imSize;
 
 var X0 = [];
 var sinX = [];
 for (var i = 1; i <= imSize; i++) { 
-	 X0[i] = (X[i] / imSize) - .5;          // rescale X -> -.5 to .5
+	 X0[i] = (X[i] / imSize) - .5;          				// rescale X -> -.5 to .5
 }
 
 var Xf =[];
 for (var i = 0; i <= imSize; i++) { 
-	Xf[i] = X0[i] * freq * 2* Math.PI;            // convert X to radians: 0 -> ( 2*pi * frequency)
+	Xf[i] = X0[i] * freq * 2* Math.PI;        			    // convert X to radians: 0 -> ( 2*pi * frequency)
 	}
 
 var Xm = [];
@@ -37,7 +36,7 @@ var Yt = [];
 var XYt = [];
 var XYf = [];
 var grating = [];
-var s = sigma / imSize;                     // gaussian width as fraction of imageSize
+var s = sigma / imSize;        					             // gaussian width as fraction of imageSize
 
 
 var gauss = [];
@@ -52,10 +51,8 @@ var contrast = trial_stimval;
 
 
 var conter = -1;
-for(var i = 0; i < imSize; i++)
-{	
-    for(var j = 0; j < imSize; j++)
-    { 
+for(var i = 0; i < imSize; i++){	
+    for(var j = 0; j < imSize; j++){ 
         conter 			= conter + 1;
         Xm		 		= X0[j];    
         Ym		 		= X0[i];    
@@ -70,8 +67,8 @@ for(var i = 0; i < imSize; i++)
         noise1		 	= ((Math.random() - .5) / .5);
         noise2		 	= ((Math.random() - .5) / .5);
 
-		Estim1[conter]  = (gabor * contrast) + noise1;  		// check maniscalco procedure. 
-		Estim1[conter]  = (Estim1[conter] / 2) * FinalContrast;  		                      // to make it -1 1
+		Estim1[conter]  = (gabor * contrast) + noise1;  		  // check maniscalco procedure. 
+		Estim1[conter]  = (Estim1[conter] / 2) * FinalContrast;   // to make it -1 1
 		if (isNaN(Estim1[conter])){Estim1[conter] = 0;}
 
 		Estim2[conter]  = noise2 * FinalContrast; 
@@ -94,8 +91,7 @@ for(var i = 0; i <data1.length; i += 4)
         imageData2.data[i] 		= Estim2[cc] * 255;  
         imageData2.data[i + 1] 	= Estim2[cc] * 255;  
         imageData2.data[i + 2] 	= Estim2[cc] * 255;  
-
-	}
+		}
 	else {
 		imageData1.data[i]  	= back_color[0];
 		imageData1.data[i+1]	= back_color[1];
@@ -105,7 +101,7 @@ for(var i = 0; i <data1.length; i += 4)
 		imageData2.data[i+1] 	= back_color[1];
 		imageData2.data[i+2] 	= back_color[2];
 		}
-		if(i ==	data1.length-4){ShowFlag = 1;} // flag to indicate end of stim creation, can display
+		if(i ==	data1.length-4){ShowFlag = 1;} // flag to indicate end of stim creation, the stimuli can be displayed
 }
 if (ShowFlag)
 {

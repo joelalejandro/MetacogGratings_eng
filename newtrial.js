@@ -6,6 +6,7 @@ $(document).unbind("click");
 $('#ResponseButtons').unbind("click");
 
 
+window.scrollTo(0,0);
 var Name = DataToSave.name;
 DataToSave = [];
 DataToSave.code = CODE; 
@@ -16,6 +17,7 @@ sc.current = Math.ceil( sc.num * Math.random())                          // sele
 
 if (sc.trial < 4){sc.current = 2};
 
+console.log(sc.trial)
 DataToSave.staircaseNumber = sc.current;
 
 sc.stairs[sc.current - 1].trial = sc.stairs[sc.current - 1].trial + 1;   // increment the trial counter for the current staircase
@@ -42,7 +44,7 @@ DataToSave.numreversals = numreversals;
 
 var stepsize = 0;
 if (sc.stairs[sc.current - 1].trial > 1)
-{                                // if we're on the first trial, just use the initial values
+{                                										 // if we're on the first trial, just use the initial values
             if(numreversals < sc.fixedstepsizes.length){          		 // we're not on the last item in the stepsize vector
              	var stepindex = numreversals;                 			 // the index in the stepsize vector is equal to the number of reversals we have encountered so far 
                }  
@@ -63,7 +65,7 @@ if (sc.stairs[sc.current - 1].trial > 1)
 				sc.stairs[sc.current - 1].hitboundaries = sc.stairs[sc.current - 1].hitboundaries + 1;
 			}
 } 
-sc.stairs[sc.current -1].stimval = stimval;                              //% set it back to the new (or old) value
+sc.stairs[sc.current -1].stimval = stimval;                              // set it back to the new (or old) value
 DataToSave.stimval = stimval;
 DataToSave.stepsize = stepsize;
 

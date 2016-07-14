@@ -149,6 +149,12 @@ background-color: rgb(255,150,0);
   transform: translateY(4px);
  } 
 
+  #myCanvasR{
+    display: none;}
+  #myCanvasL{
+    display: none;}
+
+
 #RespButton1{
   display: none;
   padding: 5px 15px;
@@ -209,10 +215,10 @@ background-color: rgb(255,150,0);
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
 	#myCanvasL{
-		width: 100%;
+		width: 130%;
 		height: auto;}
 	#myCanvasR{
-		width: 100%;
+		width: 130%;
 		height: auto;
 }				
 	#preg{font-size: 20;}
@@ -245,6 +251,15 @@ background-color: rgb(255,150,0);
     width: auto; 
 		font-size:50px;} 
  
+  #Question1{margin-top: 0px;}
+  #Question2{margin-top: 0px;}
+  #Stimuli{margin-top: 120px;}
+  #ResponseButtons{margin-top: 180px;}
+  #scale{margin-top: 152px;}
+  #bar1{margin-top: 193px;}
+  #bar2{margin-top: 190px;}
+  #DotC{margin-top: 120px;}
+
 }  
 
 /* --------------------------For tablets: -------------*/
@@ -291,17 +306,26 @@ background-color: rgb(255,150,0);
 		}
 	#myCanvasL{
     display: none;
-		width: 80%;
+		width: 100%;
 		height: auto;}
 	#myCanvasR{
     display: none;
-		width: 80%;
+		width: 100%;
 		height: auto;}
 
 #Dot:{
    width: auto; 
    font-size:100%;
    } 
+
+  #Question1{margin-top: 0px;}
+  #Question2{margin-top: 0px;}
+  #Stimuli{margin-top: 120px;}
+  #ResponseButtons{margin-top: 180px;}
+  #scale{margin-top: 152px;}
+  #bar1{margin-top: 193px;}
+  #bar2{margin-top: 190px;}
+  #DotC{margin-top: 120px;}
 
 }
 
@@ -319,6 +343,7 @@ background-color: rgb(255,150,0);
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+
 
 	#preg{font-size: 30;}
 	#preg_segu{font-size: 30;}
@@ -344,6 +369,18 @@ background-color: rgb(255,150,0);
 		width: auto; 
    font-size:200%;
 		} 
+
+
+  #Question1{margin-top: 0px;}
+  #Question2{margin-top: 0px;}
+  #Stimuli{margin-top: 120px;}
+  #ResponseButtons{margin-top: 180px;}
+  #scale{margin-top: 152px;}
+  #bar1{margin-top: 193px;}
+  #bar2{margin-top: 190px;}
+  #DotC{margin-top: 120px;}
+
+
 }
 
 

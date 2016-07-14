@@ -37,9 +37,12 @@ setTimeout("$('#Dot').hide();",T2);
 setTimeout("$('#RespButton1').fadeIn(200);",T2);
 setTimeout("$('#RespButton2').fadeIn(200);",T2);
 
+
+if (AutomaticResponse ==1){setTimeout("$('#RespButton1').click()",4000)}						// to run alone
+
 $('#RespButton1').click(function()
 {
-	DataToSave.reactionTime 	= +new Date() - StartTime - 800;      ////CHECK
+	DataToSave.reactionTime 	= +new Date() - StartTime - T1;      ////CHECK
     sc.response[sc.trial-1] 	= 0;
 	sc.correct[sc.trial-1] 		= sc.response[sc.trial-1] == sc.side[sc.trial-1];
 
@@ -58,7 +61,7 @@ $('#RespButton1').click(function()
 
 $('#RespButton2').click(function()
 {
-	DataToSave.reactionTime 	= +new Date() - StartTime - 800;
+	DataToSave.reactionTime 	= +new Date() - StartTime - T1;
 	sc.response[sc.trial-1] 	= 1;
 	sc.correct[sc.trial-1] 		= sc.response[sc.trial-1] == sc.side[sc.trial-1];	
 	DataToSave.response 		= sc.response[sc.trial-1];

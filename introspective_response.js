@@ -19,7 +19,6 @@ $('#line1').show();
 
 var x = 0;
 clearInterval("id");
-$('#ThickLine').width(0);  // posicion inicial a 0 
 $('#preg_segu').show();
 var percent = 0;
 
@@ -29,14 +28,14 @@ StartTime = +new Date();
 if (Touchscreen == 'Mouse')
 {
 	if (AutomaticResponse ==1){setTimeout("$('#Dial').click()",1000)}						// to run alone
-		$(document).mousemove(function(e){ 																					// slides the cursor
+		$(document).mousemove(function(e){ 													// slides the cursor
 		$('#scale').show();
 		$('#Dial').show();
 		x = e.pageX;
 		if (e.pageX >= LIMMAX){x = LIMMAX};
 		if (e.pageX <= LIMMIN){x = LIMMIN};
 
-		percen = (100 * (x - LIMMIN)/range).toFixed(0)  														// get percentaje online
+		percen = (100 * (x - LIMMIN)/range).toFixed(0)  									// get percentaje online
 		$('#scale').html(percen.toString().concat(' %'))
 		$('#scale').css({"left": x- Math.ceil(screen.width/2)})
 
@@ -54,7 +53,8 @@ if (Touchscreen == 'Mouse')
 		$('#Dial').css({"left": x})
 
 		DataToSave.confidence		= (x - LIMMIN)/range;
-		DataToSave.reactiontimeconf	= +new Date() - StartTime;		setTimeout("$('#ThickLine').css('background','rgb(255, 224, 102)')",100);
+		DataToSave.reactiontimeconf	= +new Date() - StartTime;		
+		setTimeout("$('#ThickLine').css('background','rgb(255, 224, 102)')",100);
 	 
 		$("#scale").animate({ right: '15px',top: '-15px',
             fontSize: '2em',opacity: '0.0'},500);
@@ -72,7 +72,7 @@ if (Touchscreen == 'Mouse')
 		$(document).unbind('click');
 		store_data(DataToSave);	
 	
-		if (sc.trial == MaxTrials +1) 
+		if (sc.trial == MaxTrials) 
 		{ 
 			$('#preg').html('End of the game, thank you!');
 			$('#preg').css( "fontSize", "30px" );
@@ -100,26 +100,30 @@ if (Touchscreen == 'Touchscreen')
 	$(document).on('touchstart',function (e)
 	{
 		e.preventDefault();
-		$('#ThickLine').show();
-		cachedX = currX = e.originalEvent.touches[0].pageX;
-		cachedY = currY = e.originalEvent.touches[0].pageY;   // caching the current x y
-		      
-		var x = cachedX;
-		if (e.originalEvent.touches[0].pageX >= LIMMAX){x = LIMMAX};
-		if (e.originalEvent.touches[0].pageX <= LIMMIN){x = LIMMIN};
-		$('#ThickLine').width(x - LIMMIN);
+		$('#scale').show();
+		$('#Dial').show();
+
+		$('#scale').show();
+		$('#Dial').show();
+		Xpos = e.originalEvent.touches[0].pageX;
+		if (e.originalEvent.touches[0].pageX >= LIMMAX){Xpos = LIMMAX};
+		if (e.originalEvent.touches[0].pageX <= LIMMIN){Xpos = LIMMIN};
+		$('#Dial').css({"left": Xpos});
 	});
 
-	$(document).on('touchmove',function (e)
-	{
+
+	$(document).on('touchmove',function (e){																				// slides the cursor
 		e.preventDefault();
-		currX = e.originalEvent.touches[0].pageX;
-		currY = e.originalEvent.touches[0].pageY;
-		var x = currX;
-		if (e.originalEvent.touches[0].pageX >= LIMMAX){x = LIMMAX};
-		if (e.originalEvent.touches[0].pageX <= LIMMIN){x = LIMMIN};
-		$('#ThickLine').width(x - LIMMIN);
+		Xpos = e.originalEvent.touches[0].pageX;
+		if (e.originalEvent.touches[0].pageX >= LIMMAX){Xpos = LIMMAX};
+		if (e.originalEvent.touches[0].pageX <= LIMMIN){Xpos = LIMMIN};
+
+		percen = (100 * (Xpos - LIMMIN)/range).toFixed(0) 														// get percentaje online
+		$('#scale').html(percen.toString().concat(' %'))
+		$('#scale').css({"left": Xpos- Math.ceil(screen.width/2)})
+		$('#Dial').css({"left": Xpos});
 	})
+
 
 	$(document).on('touchend',function (e)
 	{		
@@ -130,16 +134,22 @@ if (Touchscreen == 'Touchscreen')
 		$(document).unbind('touchstart');
 		$(document).unbind('touchmove');
 		$(document).unbind('touchend');
-		e.preventDefault();
-		setTimeout("$('#ThickLine').css('background','rgb(255, 224, 102)')",100);
-		$('#ThickLine').fadeOut(500);
-		$('#line1').fadeOut(500);
-		$('#preg_segu').fadeOut(500);
-		$('#marks').fadeOut(500);
+		
+		$("#scale").animate({ right: '15px',top: '-15px',
+            fontSize: '2em',opacity: '0.0'},500);
+
+		setTimeout("$('#Dial').css('background','#ff99ce')",100);
+		setTimeout("$('#Dial').css('background','#99004f')",400);
+
+		$('#Dial').fadeOut(500);
+		$('#line1').fadeOut(550);
+		$('#preg_segu').fadeOut(550);
+		$('#scale').fadeOut(500);
 		$(document).unbind('click');
+				$(document).unbind('click');
 		store_data(DataToSave);	
 	
-		if (sc.trial == MaxTrials +1) 
+		if (sc.trial == MaxTrials) 
 		{ 
 			$('#preg').html('End of the game, thank you!');
 			$('#preg').css( "fontSize", "30px" );
