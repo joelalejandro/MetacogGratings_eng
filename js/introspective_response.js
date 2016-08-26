@@ -81,14 +81,7 @@ if (Touchscreen == 'Mouse')
 		}
 		else
 		{	
-			if (sc.trial % REW == 0)
-			{
-				show_percentage(sc.correct)
-			}
-			else
-			{
-				setTimeout("$('div.linesConf').hide(0,newtrial(sc))",1500)
-			}
+			setTimeout("$('div.linesConf').hide(0,newtrial(sc))",1500)
 		};	
   });
 }
@@ -157,14 +150,7 @@ if (Touchscreen == 'Touchscreen')
 		}
 		else
 		{
-			if (sc.trial % REW == 0)
-			{
-				show_percentage(sc.correct)
-			}
-			else
-			{
-				setTimeout("$('div.linesConf').hide(0,newtrial(sc))",1500)
-			}
+			setTimeout("$('div.linesConf').hide(0,newtrial(sc))",1500)
 		};	
   })
 
