@@ -3,7 +3,7 @@
  * Lugtigheid (lugtigheid@gmail.com) 
  * available at http://code.google.com/p/matlabstaircase/
 */ 
-var AutomaticResponse = 0;  //for debugging, runs alone
+var AutomaticResponse = 1;  //for debugging, runs alone
 
 
 var back_color = [204, 255, 179];
@@ -20,6 +20,7 @@ var sigma 	 	= 40;                // gaussian standard deviation in pixels
 var freq 	 	= imSize/lamda;       // compute frequency from wavelength
 var CIRC 	 	= .07;
 var DataToSave 	= [];
+
 var FinalContrast = 10;
 
 // staircase

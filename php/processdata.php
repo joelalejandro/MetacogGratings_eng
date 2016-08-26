@@ -16,11 +16,10 @@ $var8 = $_POST["Confidence"];
 $var9 = $_POST["ReactionTimeConfidence"]; 
 $var10 = $_POST["Contrast"]; 
 $var11 = $_POST["StaircaseNumber"]; 
-$var12 = $_POST["Orientation"]; 
-$var13 = $_POST["Direction"]; 
-$var14 = $_POST["Numreversals"]; 
-$var15 = $_POST["ThetaRad"]; 
-$var16 = $_POST["PhaseRad"]; 
+$var12 = $_POST["Direction"]; 
+$var13 = $_POST["Numreversals"]; 
+$var14 = $_POST["ThetaRad"]; 
+$var15 = $_POST["PhaseRad"]; 
  
  
 $var1 = mysql_real_escape_string($var1);
@@ -38,7 +37,6 @@ $var12 = mysql_real_escape_string($var12);
 $var13 = mysql_real_escape_string($var13); 
 $var14 = mysql_real_escape_string($var14); 
 $var15 = mysql_real_escape_string($var15); 
-$var16 = mysql_real_escape_string($var16); 
 
 
 
@@ -58,14 +56,14 @@ $var12 = stripslashes($var12);
 $var13 = stripslashes($var13);
 $var14 = stripslashes($var14);
 $var15 = stripslashes($var15);
-$var16 = stripslashes($var16);
+
 
  
 $sqll = "INSERT INTO ExpeData (Code, Name, Trial, Side, Response, ReactionTime, Correct, Confidence,
-							   ReactionTimeConfidence, Contrast, StaircaseNumber, Orientation, Direction, 
+							   ReactionTimeConfidence, Contrast, StaircaseNumber, Direction, 
 							   Numreversals, ThetaRad, PhaseRad )
 				VALUES ('$var1', '$var2', '$var3', '$var4', '$var5', '$var6', '$var7', '$var8', '$var9', '$var10',
-				        '$var11', '$var12', '$var13', '$var14', '$var15', '$var16')";	
+				        '$var11', '$var12', '$var13', '$var14', '$var15')";	
 $table= 0;
 while (!$table) 
 {$table= mysql_query($sqll);}
