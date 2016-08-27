@@ -1,5 +1,8 @@
 function show_stim(sc,trial) 
 {
+
+if (AutomaticResponse ==1){setTimeout("$('#RespButton1').click()",4000)}						// to run alone
+
 	
 StartTime = +new Date();
 
@@ -37,8 +40,6 @@ setTimeout("$('#Dot').hide();",T2);
 setTimeout("$('#RespButton1').fadeIn(200);",T2);
 setTimeout("$('#RespButton2').fadeIn(200);",T2);
 
-
-if (AutomaticResponse ==1){setTimeout("$('#RespButton1').click()",4000)}						// to run alone
 
 $('#RespButton1').click(function()
 {

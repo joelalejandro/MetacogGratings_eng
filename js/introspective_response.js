@@ -1,7 +1,6 @@
 function introspective_response(DataToSave)
 {
 
-	
 var LIMMIN = Math.ceil(screen.width/2) - Math.ceil($('#line1').width()/2) - 10;
 var LIMMAX = Math.ceil(screen.width/2) + Math.ceil($('#line1').width()/2) - 10;
 var range = LIMMAX - LIMMIN;

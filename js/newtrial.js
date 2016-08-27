@@ -58,16 +58,17 @@ if (sc.stairs[sc.current - 1].trial > 1)
 
 			if (stimval <= sc.stairs[sc.current -1].minstimval){		 // stimval is smaller than the minumum stimval
 				stimval = sc.stairs[sc.current -1].minstimval;
-				sc.stairs[sc.current - 1].hitboundaries = sc.stairs[sc.current - 1].hitboundaries + 1;
+//				sc.stairs[sc.current - 1].hitboundaries = sc.stairs[sc.current - 1].hitboundaries + 1;
 				}
 			if (stimval > sc.stairs[sc.current -1].maxstimval){			 // stimval is smaller than the minumum stimval
 				stimval = sc.stairs[sc.current - 1].maxstimval;
-				sc.stairs[sc.current - 1].hitboundaries = sc.stairs[sc.current - 1].hitboundaries + 1;
+//				sc.stairs[sc.current - 1].hitboundaries = sc.stairs[sc.current - 1].hitboundaries + 1;
 			}
 } 
 sc.stairs[sc.current -1].stimval = stimval;                              // set it back to the new (or old) value
 DataToSave.stimval = stimval;
 DataToSave.stepsize = stepsize;
+
 
 
 /*---------makes stimulus-----------*/

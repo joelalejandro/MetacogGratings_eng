@@ -9,7 +9,6 @@ switch(sc.correct[sc.trial-1]) {
         {
 			if(sc.stairs[sc.current - 1].right >= sc.stairs[sc.current - 1].down) 
 			{
-				sc.stairs[sc.current - 1].reversalTrial.push(sc.stairs[sc.current - 1].trial);      // save it to the reversal matrix
 				sc.stairs[sc.current - 1].reversalStimval.push(sc.stairs[sc.current - 1].stimval);
 			}
 			sc.stairs[sc.current - 1].right 	= 0;                                 		// reset the counter
@@ -23,7 +22,6 @@ switch(sc.correct[sc.trial-1]) {
 		{ 
             if (sc.stairs[sc.current - 1].wrong >= sc.stairs[sc.current - 1].up)
 			{  
-				sc.stairs[sc.current - 1].reversalTrial.push(sc.stairs[sc.current - 1].trial);      // save it to the reversal matrix
 				sc.stairs[sc.current - 1].reversalStimval.push(sc.stairs[sc.current - 1].stimval);
 			}
 		    sc.stairs[sc.current - 1].wrong 	= 0;                      					// reset the counter
@@ -31,7 +29,4 @@ switch(sc.correct[sc.trial-1]) {
 }
 		break;
 }
-
-//newdata = [trial_number trial_stimval trial_resp];                 // updates the staircase with new data, reate a new line for the data saving process
-//sc.stairs[sc.current - 1].data[sc.trial - 1] = trial.number;   // save the data from this trial to the struct
 }
